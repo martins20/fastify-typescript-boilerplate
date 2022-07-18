@@ -9,11 +9,11 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "start": "npm run build:ts && fastify start -l info dist/src/index.js",
+    "start": "npm run build:ts && node dist/src/index.js",
     "build:ts": "babel src --extensions \".js,.ts\" --out-dir dist/src --copy-files",
     "watch:ts": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn ./src/index.ts",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/index.js"
+    "dev:start": "node dist/src/index.js"
   },
   "keywords": [],
   "author": "",
