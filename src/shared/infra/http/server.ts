@@ -2,8 +2,8 @@ import "dotenv/config";
 import "reflect-metadata";
 
 import { join } from "path";
-import fastify, { FastifyInstance } from "fastify";
 import AutoLoad from "@fastify/autoload";
+import fastify, { FastifyInstance } from "fastify";
 
 import { Singleton } from "@shared/decorators/singleton";
 import { registerRoutes } from "@shared/infra/http/routes/root";
@@ -23,6 +23,8 @@ export class ApiServer {
   }
 
   private usePlugins() {
+    void this.api.register(require("@fastify/cors"));
+
     void this.api.register(AutoLoad, {
       dir: join(__dirname, "..", "plugins"),
     });
