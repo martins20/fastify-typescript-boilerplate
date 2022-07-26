@@ -1,5 +1,5 @@
-import { ApiServer } from "@shared/infra/http/server";
 import { AppDataSource } from "@shared/infra/database/typeorm/data-source";
+import { ApiServer } from "@shared/infra/http/server";
 
 import "dotenv/config";
 

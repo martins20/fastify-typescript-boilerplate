@@ -1,10 +1,12 @@
-export const SINGLETON_KEY = Symbol();
+export const SINGLETON_KEY = Symbol("Singleton key");
 
-export type Singleton<T extends new (...args: any[]) => any> = T & {
-  [SINGLETON_KEY]: T extends new (...args: any[]) => infer I ? I : never;
+export type Singleton<T extends new (...args: unknown[]) => unknown> = T & {
+  [SINGLETON_KEY]: T extends new (...args: unknown[]) => infer I ? I : never;
 };
 
-export const Singleton = <T extends new (...args: any[]) => any>(type: T) =>
+export const Singleton = <T extends new (...args: unknown[]) => unknown>(
+  type: T
+) =>
   new Proxy(type, {
     construct(target: Singleton<T>, argsList, newTarget) {
       if (target.prototype !== newTarget.prototype) {
@@ -12,6 +14,7 @@ export const Singleton = <T extends new (...args: any[]) => any>(type: T) =>
       }
 
       if (!target[SINGLETON_KEY]) {
+        // eslint-disable-next-line no-param-reassign
         target[SINGLETON_KEY] = Reflect.construct(target, argsList, newTarget);
       }
 

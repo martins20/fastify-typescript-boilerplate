@@ -1,4 +1,5 @@
 import { resolve } from "path";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { pathsToModuleNameMapper } from "ts-jest";
 
 import { compilerOptions } from "./tsconfig.json";

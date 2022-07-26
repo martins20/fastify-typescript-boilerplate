@@ -4,8 +4,6 @@ import { Singleton } from "./singleton";
 export class Counter {
   private counter = 0;
 
-  constructor() {}
-
   addCount() {
     this.counter += 1;
   }

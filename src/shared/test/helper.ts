@@ -4,7 +4,7 @@ import { FastifyInstance, FastifyPluginCallback } from "fastify";
 import { ApiServer } from "../infra/http/server";
 
 function makeFastifyClient(): FastifyInstance {
-  const api = new ApiServer().api;
+  const { api } = new ApiServer();
 
   return api;
 }
