@@ -65,4 +65,5 @@ test/types/index.js
 dist
 
 package-lock.json
+yarn.lock
 .env

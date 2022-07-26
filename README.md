@@ -1,23 +1,16 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# Fastify boilerplate
 
-## Available Scripts
+A boilerplate of Fastify + Typescript and TypeORM with automated tests
 
-In the project directory, you can run:
+# Scripts
 
-### `npm run dev`
+`Use Yarn or NPM to run your scripts`
 
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- typeorm-migration:create -- migration_name_here => Will create a migration file into database migration's folder.
+- typeorm => Will call the CLI from TypeORM
+- start:dev => Will start the server into development mode
+- start:prod => Will start the server into production mode. ( from dist folder )
+- build => Will build the dist folder to production mode
+- test => Run the tests from projects
+- test:watch => Will watch your test files and every change will re-run the tests
 
-### `npm start`
-
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://www.fastify.io/docs/latest/).

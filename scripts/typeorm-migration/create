@@ -1,0 +1,2 @@
+## This will create a migration file into database migration's folder
+typeorm migration:create ./src/shared/infra/database/typeorm/migrations/$1
