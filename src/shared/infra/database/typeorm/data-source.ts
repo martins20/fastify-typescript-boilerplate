@@ -3,9 +3,6 @@ import "dotenv/config";
 
 import { join } from "path";
 import { DataSource } from "typeorm";
-import { Test1658862383607 } from "./migrations/1658862383607-Test";
-
-import { TypeormHelloEntity } from "@modules/hello/infra/typeorm/entities/hello";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -18,12 +15,14 @@ export const AppDataSource = new DataSource({
   logging: false,
   migrationsRun: true,
   entities: [
-    `${join(__dirname, "..")}/modules/**/infra/typeorm/entities/*.{.js,.ts}`,
-    TypeormHelloEntity,
+    `${join(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      ".."
+    )}/modules/**/infra/typeorm/entities/*{.js,.ts}`,
   ],
-  migrations: ["./migrations/*.{.js,.ts}", Test1658862383607],
+  migrations: [`${join(__dirname)}/migrations/*{.ts,.js}`],
   subscribers: [],
-  extra: {
-    cli: {},
-  },
 });
